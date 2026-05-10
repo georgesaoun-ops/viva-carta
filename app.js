@@ -219,7 +219,7 @@
   }
 
   // set initial EN content
-  setLangContent("en");
+  setTimeout(() => setLangContent("en"), 100);
   
   // ── DONE — page is ready ─────────────────────────────────────────────────
 
