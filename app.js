@@ -145,7 +145,7 @@
   window._guestCount = guestCount;
 
   if (guestName) {
-    document.getElementById("rsvp-guest-name").innerHTML = `<b>${guestName}</b>`;
+    document.getElementById("message").innerHTML = `<b>${guestName}</b>`;
   } else {
     // Invalid link — replace RSVP section with message
     document.querySelector(".rsvp-section").innerHTML = `
@@ -154,6 +154,9 @@
   }
 
   // RSVP deadline
+    if (guestName) {
+    document.getElementById("message").innerHTML = `<b>${guestName}</b>`;
+  }
   document.getElementById("reply-deadline").textContent = cfg.rsvpDeadlineEn;
 
   // ── 12. WEDDING COUNTDOWN ─────────────────────────────────────────────────
