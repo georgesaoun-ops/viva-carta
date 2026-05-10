@@ -74,6 +74,16 @@
 
   // ── 8. SECTION 1 — Hero ──────────────────────────────────────────────────
   document.getElementById("couple-names").textContent = cfg.couple;
+  const quoteEl = document.querySelector(".quote");
+  if (quoteEl) quoteEl.innerHTML = `${cfg.quoteEn}<br><span style="color:rgba(255,255,255,0.7);">${cfg.quoteRefEn}</span>`;
+  const familyEl = document.querySelector(".family");
+  if (familyEl) familyEl.innerHTML = cfg.familyEn;
+  const inviteEl = document.querySelector(".invite-text");
+  if (inviteEl) inviteEl.textContent = cfg.inviteEn;
+  const taglineEl = document.getElementById("landing-tagline");
+  if (taglineEl) taglineEl.textContent = cfg.landingTaglineEn;
+  const punctualEl = document.getElementById("punctual-note");
+  if (punctualEl) punctualEl.textContent = "We kindly ask guests to arrive a little early so the ceremony may begin promptly at the scheduled time.";
 
   // ── 9. SECTION 2 — Venue ─────────────────────────────────────────────────
   document.getElementById("venue-name-title").textContent = cfg.venueName;
