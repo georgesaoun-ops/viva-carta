@@ -202,9 +202,6 @@
     }
   };
 
-  // set initial EN content
-  setLangContent("en");
-
   // ── 15. ALREADY SUBMITTED? ────────────────────────────────────────────────
   if (guestName && localStorage.getItem("rsvp_submitted_" + guestName)) {
     document.querySelector(".rsvp-buttons").style.display      = "none";
@@ -221,6 +218,9 @@
     msgEl.classList.add("visible");
   }
 
+  // set initial EN content
+  setLangContent("en");
+  
   // ── DONE — page is ready ─────────────────────────────────────────────────
 
 })();
