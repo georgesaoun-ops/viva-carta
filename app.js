@@ -11,9 +11,7 @@
   // ── 1. READ SLUG FROM URL ────────────────────────────────────────────────
   // Supports both ?georges-and-yara  and  ?slug=georges-and-yara
   const raw = window.location.search.slice(1); // remove leading "?"
-  const slug = raw.includes("=")
-    ? new URLSearchParams(raw).get("slug") || raw.split("=")[1]
-    : raw.split("&")[0]; // take first param key as the slug
+  const slug = raw.split("&")[0].split("=")[0];
 
   if (!slug) {
     showError("No invitation found. Please check your link.");
