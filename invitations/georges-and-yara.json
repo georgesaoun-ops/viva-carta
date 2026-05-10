@@ -1,0 +1,76 @@
+{
+  "secret": "GY2026SECRET",
+  "scriptUrl": "https://script.google.com/macros/s/AKfycby8kAu5-GDYFDyE4M2BPSWXhwY4ugxJm3vYFe4X0LW35c-nk9I6xgr-TWKYcl-4ZIiRYA/exec",
+
+  "couple": "Georges & Yara",
+  "groomFirst": "Georges",
+  "brideFirst": "Yara",
+
+  "quoteEn": "\"What God has joined together, let no one separate.\"",
+  "quoteRefEn": "Mark 10:9",
+  "quoteAr": "«مَا جَمَعَهُ اللهُ لَا يُفَرِّقُهُ إِنْسَان»",
+  "quoteRefAr": "مرقس ١٠:٩",
+
+  "familyEn": "<strong>Mr. Jihad &amp; Mrs. Caroline Aoun</strong><br><em>along with</em><br><strong>Mr. Gergi &amp; Mrs. Maha Habib</strong>",
+  "familyAr": "<strong>السيد جهاد والسيدة كارولين عون</strong><br><em>و</em><br><strong>السيد جرجي والسيدة مها حبيب</strong>",
+
+  "inviteEn": "request the honor of your presence at the wedding of their son and daughter",
+  "inviteAr": "يتشرفون بدعوتكم إلى إكليل ولديهم",
+
+  "weddingDate": "2026-06-28T17:45:00+03:00",
+  "venueDateEn": "Sunday, June 28 2026 at 6:00 PM",
+  "venueDateAr": "الأحد ٢٨ حزيران ٢٠٢٦ — الساعة ٦:٠٠ مساءً",
+  "rsvpDeadlineEn": "Please reply before June 7, 2026",
+  "rsvpDeadlineAr": "يرجى الرد قبل ٧ حزيران ٢٠٢٦",
+
+  "venueName": "Couvent St. Georges",
+  "venueImage": "bherdoknobg.png",
+  "venueLocationEn": "Bherdok, Beit Chabeb",
+  "venueLocationAr": "بحردق - بيت شباب",
+  "venueMapsUrl": "https://maps.app.goo.gl/mPbzVzFXPR2gNSicA",
+  "venueMapsLabel": "Couvent St. Georges, Bherdok",
+  "venueNoteEn": "Ceremony followed by a welcome drink, dinner and celebration.",
+  "venueNoteAr": "يلي الإكليل حفل عشاء",
+
+  "giftIntroEn": "We are truly grateful to share this memorable occasion with you. For those who wish, a registry is available below.",
+  "giftIntroAr": "فرحتنا تكتمل بحضوركم. ولمن يرغب الإهداء :",
+  "giftAccounts": [
+    {
+      "labelEn": "Wish Money Account",
+      "labelAr": "حساب Wish Money",
+      "lines": ["#31004224-03"]
+    },
+    {
+      "labelEn": "French Bank Account (AOUN Georges)",
+      "labelAr": "حساب مصرفي فرنسي (AOUN Georges)",
+      "lines": [
+        { "label": "IBAN", "value": "FR76 3000 4001 0100 0073 5402 293", "mono": true },
+        { "label": "BIC", "value": "BNPAFRPPXXX", "mono": true }
+      ]
+    }
+  ],
+
+  "landingImage": "gandyone.jpeg",
+  "landingTaglineEn": "We can't imagine this day without you...",
+  "landingTaglineAr": "لا يمكننا تخيّل هذا اليوم من دونكم...",
+
+  "photos": [
+    "gandyone.jpeg",
+    "gandy2.jpeg",
+    "gandy3.jpeg",
+    "gandy4.jpeg",
+    "gandy5.jpeg",
+    "gandy6.jpeg"
+  ],
+
+  "music": "invitation-song.mp3",
+
+  "colors": {
+    "gold": "#c8a96a",
+    "brown": "#74583e",
+    "bg": "#fff7ee",
+    "goldLight": "#e8c97a"
+  },
+
+  "multilingual": true
+}
