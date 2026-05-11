@@ -200,7 +200,7 @@
       giftText:       cfg.giftIntroAr,
       deadline:       cfg.rsvpDeadlineAr,
       tagline:        cfg.landingTaglineAr,
-      attending:      "هل ستحضرون؟",
+      attending:      "لتأكيد الحضور",
       wishes:         "شاركونا تهانيكم وأمنياتكم:",
       yes:            "نعم", no: "لا", submit: "إرسال",
       mapsLabel:      "ابحث عن المكان",
