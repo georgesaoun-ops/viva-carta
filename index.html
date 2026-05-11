@@ -287,14 +287,15 @@ button#edit-btn:hover { background:#fff3f0; }
           <hr style="width:60%;border:none;border-top:1px solid rgba(200,169,106,0.3);margin:0;">
         </div>
 
-        <h2 class="venue-title">Honor us with your presence</h2>
-        <div id="message"></div>
-        <p id="attending-count" style="display:none;">Number of persons attending: <strong><span id="num-attending"></span></strong></p>
-        <p id="attending-question">Are you attending?</p>
-        <div class="rsvp-buttons">
-          <button class="confirm" id="btn-yes" onclick="selectAttendance(true)">Yes</button>
-          <button class="decline" id="btn-no" onclick="selectAttendance(false)">No</button>
-        </div>
+<h2 class="venue-title">Honor us with your presence</h2>
+<div id="message"></div>
+<p>Number of persons invited: <strong><span id="num-guests"></span></strong></p>
+<p id="attending-count" style="display:none;">Number of persons attending: <strong><span id="num-attending"></span></strong></p>
+<p id="attending-question">Are you attending?</p>
+<div class="rsvp-buttons">
+  <button class="confirm" id="btn-yes" onclick="selectAttendance(true)">Yes</button>
+  <button class="decline" id="btn-no" onclick="selectAttendance(false)">No</button>
+</div>
 
         <div id="guest-count-section">
           <hr class="gc-divider">
