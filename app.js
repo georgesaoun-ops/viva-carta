@@ -143,6 +143,8 @@
   window._guestName  = guestName;
   window._guestCount = guestCount;
 
+  if (guestCount) document.getElementById("num-guests").innerText = guestCount;
+
   if (guestName) {
     document.getElementById("message").innerHTML = `<b>${guestName}</b>`;
   } else {
