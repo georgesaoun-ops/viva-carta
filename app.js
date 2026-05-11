@@ -83,7 +83,6 @@
   const taglineEl = document.getElementById("landing-tagline");
   if (taglineEl) taglineEl.textContent = cfg.landingTaglineEn;
   const punctualEl = document.getElementById("punctual-note");
-  if (punctualEl) punctualEl.textContent = "We kindly ask guests to arrive a little early so the ceremony may begin promptly at the scheduled time.";
 
   // ── 9. SECTION 2 — Venue ─────────────────────────────────────────────────
   document.getElementById("venue-name-title").textContent = cfg.venueName;
@@ -184,7 +183,6 @@
       wishes:         "Share your love and wishes:",
       yes:            "Yes", no: "No", submit: "Submit",
       mapsLabel:      "Find the venue",
-      punctual:       "We kindly ask guests to arrive a little early so the ceremony may begin promptly at the scheduled time.",
       weWillBe:       "We will be", attending2: "attending",
       attendingCount: "Number of persons attending:",
       thankYouYes:    "Thank you for confirming your presence. We can't wait to celebrate this day with you!",
@@ -206,7 +204,6 @@
       wishes:         "شاركونا تهانيكم وأمنياتكم:",
       yes:            "نعم", no: "لا", submit: "إرسال",
       mapsLabel:      "ابحث عن المكان",
-      punctual:       "نرجو من الضيوف الكرام الحضور قبل الموعد حتى يبدأ الاكليل في الوقت المحدد.",
       weWillBe:       "سنحضر", attending2: "أشخاص",
       attendingCount: "عدد الحاضرين:",
       thankYouYes:    "شكراً لتأكيد حضوركم. بانتظار الاحتفال بهذا اليوم معكم!",
@@ -302,9 +299,6 @@ function setLangContent(lang) {
 
   const mapsLabelEl = document.querySelector(".maps-label");
   if (mapsLabelEl) mapsLabelEl.textContent = t.mapsLabel;
-
-  const punctualEl = document.getElementById("punctual-note");
-  if (punctualEl) punctualEl.textContent = t.punctual;
 
   const gcBefore = document.getElementById("gc-before");
   const gcAfter  = document.getElementById("gc-after");
