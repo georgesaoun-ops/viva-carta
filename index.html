@@ -291,6 +291,7 @@ button#edit-btn:hover { background:#fff3f0; }
 <div id="message"></div>
 <p>Number of persons invited: <strong><span id="num-guests"></span></strong></p>
 <p id="attending-count" style="display:none;">Number of persons attending: <strong><span id="num-attending"></span></strong></p>
+       <p id="reply-deadline" style="margin-bottom:16px;"></p>
 <p id="attending-question">Are you attending?</p>
 <div class="rsvp-buttons">
   <button class="confirm" id="btn-yes" onclick="selectAttendance(true)">Yes</button>
@@ -309,7 +310,6 @@ button#edit-btn:hover { background:#fff3f0; }
           </div>
         </div>
 
-        <p id="reply-deadline"></p>
         <div id="thank-you-msg"></div>
         <p id="changed-mind" style="font-size:1rem;font-style:italic;display:none;"></p>
         <button id="edit-btn" onclick="editResponse()">Edit</button>
