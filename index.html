@@ -18,14 +18,41 @@
 @keyframes chevUp { 0%,100%{opacity:0.2;transform:translateY(3px)} 50%{opacity:1;transform:translateY(-3px)} }
 @keyframes heroRise { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
-  @media (max-height:700px) {
-  .snap-section { padding:30px 20px; }
-  .content-card { padding:20px 16px 60px; gap:10px; }
+@media (max-width:768px) {
+  .quote { font-size:clamp(1rem,3vw,1.2rem); }
+  .family { font-size:clamp(1.2rem,4vw,2rem); }
+  .invite-text { font-size:clamp(1.1rem,3.5vw,1.7rem); }
+  .rsvp-section p { font-size:clamp(1rem,3vw,1.2rem); }
+  .content-card { padding:clamp(20px,4vw,32px) clamp(16px,3vw,24px) 90px; }
+  h1 { font-size:clamp(50px,14vw,100px); white-space:nowrap; }
+  .rsvp-section { gap:10px; }
+  textarea { height:70px; }
+  button#submit { padding:10px 40px; }
+}
+
+@media (max-width:400px) {
+  .rsvp-section { gap:8px; }
+  textarea { height:60px; }
+  .content-card { padding:16px 14px 90px; }
+  button#submit { padding:8px 40px; font-size:1rem; }
+  .snap-section { padding:40px 20px; }
+  .family { font-size:clamp(1rem,3.5vw,1.5rem); }
+  .quote { font-size:clamp(0.9rem,2.5vw,1rem); }
+  .invite-text { font-size:clamp(1rem,3vw,1.2rem); }
+  h1 { font-size:clamp(42px,13vw,80px); }
+}
+
+@media (max-height:700px) {
+  .snap-section { padding:30px 20px; gap:20px; }
+  .content-card { padding:16px 14px 90px; gap:8px; }
   .venue-title { font-size:2rem; }
   .venue-name { font-size:1.6rem; }
   h1 { font-size:clamp(40px,12vw,80px); }
-  .family { font-size:clamp(1rem,3vw,1.5rem); }
-  .quote { font-size:clamp(0.85rem,2.5vw,1.2rem); }
+  .family { font-size:clamp(1rem,3vw,1.4rem); }
+  .quote { font-size:clamp(0.85rem,2.5vw,1rem); }
+  .invite-text { font-size:clamp(1rem,3vw,1.2rem); }
+  textarea { height:60px; }
+  .rsvp-section { gap:8px; }
 }
   
 *, *::before, *::after { box-sizing: border-box; }
@@ -71,7 +98,7 @@ html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:
 #invitation-content > * { pointer-events:all; }
 
 .snap-section { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px; scroll-snap-align:start; }
-.content-card { background:transparent; border-radius:24px; padding:40px 36px 80px; width:90%; max-width:560px; display:flex; flex-direction:column; align-items:center; gap:16px; border:1px solid var(--gold); }
+.content-card { background:transparent; border-radius:24px; padding:40px 36px 90px; width:90%; max-width:560px; display:flex; flex-direction:column; align-items:center; gap:16px; border:1px solid var(--gold); }
 .hero-text { display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
 .hero-middle { display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
 .hero-middle .family { font-size:1.5rem; line-height:2; color:#ffffff; }
@@ -155,7 +182,7 @@ button#edit-btn:hover { background:#fff3f0; }
 .maps-name { font-size:1.05rem; }
 
 /* Gift */
-#section-gift .content-card { padding:28px 20px; }
+#section-gift .content-card { padding:28px 20px 90px; }
 
 /* Scroll animations */
 .content-card, .hero-text { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease,transform 0.7s ease; }
