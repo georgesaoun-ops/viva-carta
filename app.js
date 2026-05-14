@@ -186,6 +186,7 @@
       mapsLabel:      "Find the venue",
       weWillBe:       "We will be", attending2: "attending",
       attendingCount: "Number of persons attending:",
+      invitedCount:   "Number of persons invited:",
       thankYouYes:    "Thank you for confirming your presence. We can't wait to celebrate this day with you!",
       thankYouNo:     "Thank you for letting us know.",
       needChange:     "Need to make a change?",
@@ -206,6 +207,7 @@
       mapsLabel:      "ابحث عن المكان",
       weWillBe:       "سنحضر", attending2: "أشخاص",
       attendingCount: "عدد الحاضرين:",
+      invitedCount:   "عدد المدعوين:",
       thankYouYes:    "شكراً لتأكيد حضوركم. بانتظار الاحتفال بهذا اليوم معكم!",
       thankYouNo:     "شكراً لإعلامنا.",
       needChange:     "هل تريدون التعديل؟",
@@ -316,6 +318,9 @@ function setLangContent(lang) {
 
   const attendingCountEl = document.getElementById("attending-count");
   if (attendingCountEl) attendingCountEl.childNodes[0].textContent = t.attendingCount + " ";
+
+  const invitedCountEl = document.getElementById("num-guests");
+  if (invitedCountEl) invitedCountEl.closest("p").childNodes[0].textContent = t.invitedCount + " ";
 
   window._currentLang = lang;
 }
