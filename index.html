@@ -16,6 +16,7 @@
 }
 
 @keyframes chevUp { 0%,100%{opacity:0.2;transform:translateY(3px)} 50%{opacity:1;transform:translateY(-3px)} }
+@keyframes heroRise { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
   
 *, *::before, *::after { box-sizing: border-box; }
 *:focus { outline: none; }
@@ -222,15 +223,15 @@ button#edit-btn:hover { background:#fff3f0; }
 <div id="invitation" style="display:none;">
   <div id="invitation-content">
 
-    <!-- SECTION 1: Hero -->
+<!-- SECTION 1: Hero -->
     <div class="snap-section" style="justify-content:center; gap:60px; padding:80px 20px;">
-     <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-40px;">
-      <p class="quote" style="color:#ffffff;opacity:0.9;"></p>
-      <hr class="divider" style="margin:8px 0 0 0;">
-    </div>
-      <p class="family" style="color:#ffffff;"></p>
-      <p class="invite-text" style="color:rgba(255,255,255,0.85);margin-bottom:-20px !important;"></p>
-      <h1 id="couple-names" style="color:var(--goldLight);margin-bottom:40px;padding:0 10px 10px 15px;"></h1>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-40px;animation:heroRise 0.8s ease 0.1s both;">
+        <p class="quote" style="color:#ffffff;opacity:0.9;"></p>
+        <hr class="divider" style="margin:8px 0 0 0;">
+      </div>
+      <p class="family" style="color:#ffffff;animation:heroRise 0.8s ease 0.3s both;"></p>
+      <p class="invite-text" style="color:rgba(255,255,255,0.85);margin-bottom:-20px !important;animation:heroRise 0.8s ease 0.5s both;"></p>
+      <h1 id="couple-names" style="color:var(--goldLight);margin-bottom:40px;padding:0 10px 10px 15px;animation:heroRise 0.8s ease 0.7s both;"></h1>
     </div>
 
     <!-- SECTION 2: Venue -->
