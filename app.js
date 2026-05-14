@@ -230,8 +230,9 @@
     msgEl.classList.add("visible");
   }
 
-  // set initial EN content
-  setTimeout(() => setLangContent("en"), 100);
+  // set initial language from URL or default to EN
+  const langParam = params.get("lang") || "en";
+  setTimeout(() => setLangContent(langParam), 100);
   
   // ── DONE — page is ready ─────────────────────────────────────────────────
 
