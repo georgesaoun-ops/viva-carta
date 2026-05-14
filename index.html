@@ -188,7 +188,7 @@ button#edit-btn:hover { background:#fff3f0; }
 <audio id="bg-music" loop>
   <source id="bg-music-src" src="" type="audio/mpeg">
 </audio>
-<button id="music-btn" onclick="toggleMusic()" title="Music">
+<button id="music-btn" onclick="toggleMusic()" title="Music" style="display:none;">
   <svg id="icon-playing" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none;">
     <path d="M9 18V6l12-2v12" stroke="#c8a96a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="6" cy="18" r="3" stroke="#c8a96a" stroke-width="1.5"/>
@@ -392,6 +392,7 @@ function enterInvitation() {
   document.getElementById('carousel-bg-fixed').style.display='block';
   document.getElementById('invitation').style.display='block';
   document.getElementById('landing').classList.add('leaving');
+  document.getElementById('music-btn').style.display='flex';
 
   // Start carousel
   const slides = document.querySelectorAll('#carousel-bg-fixed .carousel-slide');
