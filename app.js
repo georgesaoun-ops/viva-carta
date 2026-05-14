@@ -233,11 +233,13 @@
   // set initial language from URL or default to EN
   const langParam = params.get("lang") || "en";
   window._langParam = langParam;
-  setTimeout(() => setLangContent(langParam), 100);
-  if (langParam === "ar") {
-    document.querySelectorAll(".lang-option").forEach(o => o.classList.remove("active"));
-    document.querySelectorAll(".lang-option")[1].classList.add("active");
-  }
+  setTimeout(() => {
+    setLangContent(langParam);
+    if (langParam === "ar") {
+      document.querySelectorAll(".lang-option").forEach(o => o.classList.remove("active"));
+      document.querySelectorAll(".lang-option")[1].classList.add("active");
+    }
+  }, 100);
   
   // ── DONE — page is ready ─────────────────────────────────────────────────
 
