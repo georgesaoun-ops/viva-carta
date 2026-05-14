@@ -180,7 +180,6 @@
       venueLocation:  cfg.venueLocationEn,
       giftText:       cfg.giftIntroEn,
       deadline:       cfg.rsvpDeadlineEn,
-      tagline:        cfg.landingTaglineEn,
       attending:      "Are you attending?",
       wishes:         "Share your love and wishes:",
       yes:            "Yes", no: "No", submit: "Submit",
@@ -201,7 +200,6 @@
       venueLocation:  cfg.venueLocationAr,
       giftText:       cfg.giftIntroAr,
       deadline:       cfg.rsvpDeadlineAr,
-      tagline:        cfg.landingTaglineAr,
       attending:      "لتأكيد الحضور",
       wishes:         "شاركونا تهانيكم وأمنياتكم:",
       yes:            "نعم", no: "لا", submit: "إرسال",
@@ -232,8 +230,8 @@
 
   // set initial language from URL or default to EN
   const langParam = params.get("lang") || "en";
+  window._langParam = langParam;
   setTimeout(() => setLangContent(langParam), 100);
-  if (langParam === "ar") document.getElementById("lang-label").textContent = "AR";
   
   // ── DONE — page is ready ─────────────────────────────────────────────────
 
