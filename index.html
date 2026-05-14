@@ -221,7 +221,7 @@ button#edit-btn:hover { background:#fff3f0; }
   <div id="invitation-content">
 
     <!-- SECTION 1: Hero -->
-    <div class="snap-section" style="justify-content:space-between; padding:40px 20px 100px;">
+    <div class="snap-section" style="justify-content:space-between; padding:80px 20px;">
       <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
         <p class="quote" style="color:#ffffff;opacity:0.9;"></p>
         <hr class="divider" style="margin:8px 0 0 0;">
@@ -392,20 +392,6 @@ function enterInvitation() {
   document.getElementById('landing').classList.add('leaving');
   document.getElementById('music-btn').style.display='flex';
   document.getElementById('swipe-hint').style.display='flex';
-
-  let scrollTimer;
-  document.getElementById('invitation').addEventListener('scroll', function() {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => {
-      const sections = document.querySelectorAll('.snap-section');
-      const lastSection = sections[sections.length - 1];
-      if (this.scrollTop >= lastSection.offsetTop - 100) {
-        document.getElementById('swipe-hint').style.display = 'none';
-      } else {
-        document.getElementById('swipe-hint').style.display = 'flex';
-      }
-    }, 50);
-  });
 
   // Start carousel
   const slides = document.querySelectorAll('#carousel-bg-fixed .carousel-slide');
