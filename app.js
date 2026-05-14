@@ -232,6 +232,10 @@
   const langParam = params.get("lang") || "en";
   window._langParam = langParam;
   setTimeout(() => setLangContent(langParam), 100);
+  if (langParam === "ar") {
+    document.querySelectorAll(".lang-option").forEach(o => o.classList.remove("active"));
+    document.querySelectorAll(".lang-option")[1].classList.add("active");
+  }
   
   // ── DONE — page is ready ─────────────────────────────────────────────────
 
