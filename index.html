@@ -418,12 +418,13 @@ function enterInvitation() {
     }, 4000);
   }
 
-setTimeout(() => {
+if (window._cfg && window._cfg.multilingual) {
+    document.getElementById('lang-switcher').style.display='block';
+  }
+  if (window._langParam === 'ar') document.getElementById('lang-label').textContent = 'AR';
+
+  setTimeout(() => {
     document.getElementById('landing').style.display='none';
-    if (window._cfg && window._cfg.multilingual) {
-      document.getElementById('lang-switcher').style.display='block';
-    }
-    if (window._langParam === 'ar') document.getElementById('lang-label').textContent = 'AR';
     window.scrollTo(0,0);
     initScrollAnimations();
   }, 700);
