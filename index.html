@@ -538,6 +538,7 @@ function editResponse() {
   document.getElementById("edit-btn").style.display             = "none";
   document.getElementById("changed-mind").style.display         = "none";
   document.getElementById("attending-count").style.display      = "none";
+  document.getElementById("num-guests").closest("p").style.display = "block";
   const msgEl = document.getElementById("thank-you-msg");
   msgEl.classList.remove("visible");
   msgEl.textContent = "";
