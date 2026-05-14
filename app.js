@@ -309,9 +309,6 @@ function setLangContent(lang) {
   if (gcBefore) gcBefore.textContent = t.weWillBe;
   if (gcAfter)  gcAfter.textContent  = t.attending2;
 
-  const taglineEl = document.getElementById("landing-tagline");
-  if (taglineEl && t.tagline) taglineEl.textContent = t.tagline;
-
   const changedEl = document.getElementById("changed-mind");
   if (changedEl) changedEl.textContent = t.needChange;
 
