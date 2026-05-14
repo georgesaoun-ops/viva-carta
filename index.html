@@ -14,8 +14,8 @@
   --bg:        #fff7ee;
   --goldLight: #e8c97a;
 }
-#scroll-progress { position:fixed; right:10px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:6px; z-index:998; display:none; }
-#scroll-progress .sp-dot { width:3px; height:3px; border-radius:50%; background:rgba(200,169,106,0.25); transition:background 0.3s ease; }
+#scroll-progress { position:fixed; right:12px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:10px; z-index:998; display:none; }
+#scroll-progress .sp-dot { width:6px; height:6px; border-radius:50%; background:rgba(200,169,106,0.25); transition:background 0.3s ease; }
 #scroll-progress .sp-dot.active { background:var(--gold); animation:activePulse 1.5s ease-in-out infinite; }
 @keyframes activePulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
   
@@ -624,17 +624,18 @@ document.addEventListener('click', function(e) {
 });
 
 document.getElementById('invitation').addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('.snap-section');
-    const dots = document.querySelectorAll('.sp-dot');
-    const scrollTop = this.scrollTop;
-    const height = this.clientHeight;
-    sections.forEach((sec, i) => {
-      if (scrollTop >= sec.offsetTop - height / 2) {
-        dots.forEach(d => d.classList.remove('active'));
-        if (dots[i]) dots[i].classList.add('active');
-      }
-    });
+  const sections = document.querySelectorAll('.snap-section');
+  const dots = document.querySelectorAll('.sp-dot');
+  const scrollTop = this.scrollTop;
+  let activeIndex = 0;
+  sections.forEach((sec, i) => {
+    if (scrollTop >= sec.offsetTop - 100) {
+      activeIndex = i;
+    }
   });
+  dots.forEach(d => d.classList.remove('active'));
+  if (dots[activeIndex]) dots[activeIndex].classList.add('active');
+});
 </script>
 
   <div id="scroll-progress">
