@@ -14,10 +14,6 @@
   --bg:        #fff7ee;
   --goldLight: #e8c97a;
 }
-#scroll-progress { position:fixed; right:12px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:10px; z-index:998; display:none; }
-#scroll-progress .sp-dot { width:8px; height:8px; border-radius:50%; background:rgba(200,169,106,0.3); transition:all 0.3s ease; }
-#scroll-progress .sp-dot.active { background:var(--gold); transform:scale(1.3); animation:activePulse 1.5s ease-in-out infinite; }
-@keyframes activePulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
   
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:var(--bg); font-family:'EB Garamond',serif; text-align:center; color:var(--brown); }
@@ -392,7 +388,6 @@ function enterInvitation() {
   document.getElementById('invitation').style.display='block';
   document.getElementById('landing').classList.add('leaving');
   document.getElementById('music-btn').style.display='flex';
-  document.getElementById('scroll-progress').style.display='flex';
 
   // Start carousel
   const slides = document.querySelectorAll('#carousel-bg-fixed .carousel-slide');
@@ -623,27 +618,7 @@ document.addEventListener('click', function(e) {
   if (switcher && !switcher.contains(e.target)) document.getElementById('lang-menu').style.display = 'none';
 });
 
-document.getElementById('invitation').addEventListener('scroll', function() {
-  const sections = document.querySelectorAll('.snap-section');
-  const dots = document.querySelectorAll('.sp-dot');
-  const scrollTop = this.scrollTop;
-  let activeIndex = 0;
-  sections.forEach((sec, i) => {
-    if (scrollTop >= sec.offsetTop - 100) {
-      activeIndex = i;
-    }
-  });
-  dots.forEach(d => d.classList.remove('active'));
-  if (dots[activeIndex]) dots[activeIndex].classList.add('active');
-});
 </script>
-
-  <div id="scroll-progress">
-  <div class="sp-dot active"></div>
-  <div class="sp-dot"></div>
-  <div class="sp-dot"></div>
-  <div class="sp-dot"></div>
-</div>
   
 </body>
 </html>
