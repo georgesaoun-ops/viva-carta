@@ -15,8 +15,8 @@
   --goldLight: #e8c97a;
 }
 #scroll-progress { position:fixed; right:12px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:10px; z-index:998; display:none; }
-#scroll-progress .sp-dot { width:6px; height:6px; border-radius:50%; background:rgba(200,169,106,0.25); transition:background 0.3s ease; }
-#scroll-progress .sp-dot.active { background:var(--gold); animation:activePulse 1.5s ease-in-out infinite; }
+#scroll-progress .sp-dot { width:8px; height:8px; border-radius:50%; background:rgba(200,169,106,0.3); transition:all 0.3s ease; }
+#scroll-progress .sp-dot.active { background:var(--gold); transform:scale(1.3); animation:activePulse 1.5s ease-in-out infinite; }
 @keyframes activePulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
   
 *, *::before, *::after { box-sizing: border-box; }
