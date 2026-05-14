@@ -33,7 +33,7 @@
 * { -webkit-tap-highlight-color: transparent; }
 html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:var(--bg); font-family:'EB Garamond',serif; text-align:center; color:var(--brown); }
 
-#music-btn { position:fixed; bottom:calc(28px + env(safe-area-inset-bottom)); left:28px; z-index:999; width:46px; height:46px; border-radius:50%; border:1px solid rgba(200,169,106,0.5); background:transparent; color:var(--brown); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease; padding:0; }
+#music-btn { position:fixed; bottom:28px; left:28px; z-index:999; width:46px; height:46px; border-radius:50%; border:1px solid rgba(200,169,106,0.5); background:transparent; color:var(--brown); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease; padding:0; }
 #music-btn:hover { transform:scale(1.08); }
 #music-btn svg { width:18px; height:18px; transition:opacity 0.3s ease; }
 
@@ -651,7 +651,7 @@ document.addEventListener('click', function(e) {
 
 </script>
 
-<div id="swipe-hint" style="display:none; position:fixed; bottom:calc(28px + env(safe-area-inset-bottom)); right:28px; z-index:999; flex-direction:column; align-items:center; gap:4px;">
+<div id="swipe-hint" style="display:none; position:fixed; bottom:28px; right:28px; z-index:999; flex-direction:column; align-items:center; gap:4px;">
   <svg width="18" height="11" viewBox="0 0 18 11" fill="none" stroke="rgba(200,169,106,0.9)" stroke-width="1.5" stroke-linecap="round" style="animation:chevUp 1.8s ease-in-out infinite;"><path d="M2 9l7-7 7 7"/></svg>
   <svg width="18" height="11" viewBox="0 0 18 11" fill="none" stroke="rgba(200,169,106,0.9)" stroke-width="1.5" stroke-linecap="round" style="animation:chevUp 1.8s ease-in-out 0.25s infinite;"><path d="M2 9l7-7 7 7"/></svg>
   <span style="font-family:'EB Garamond',serif; font-size:0.55rem; letter-spacing:2px; text-transform:uppercase; color:rgba(200,169,106,0.7);">swipe up</span>
