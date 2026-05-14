@@ -23,42 +23,48 @@
   .family { font-size:clamp(1rem,4vw,2rem); }
   .invite-text { font-size:clamp(1rem,3.5vw,1.7rem); }
   .rsvp-section p { font-size:clamp(0.9rem,3vw,1.2rem); }
-  .content-card { padding:clamp(16px,3vw,28px) clamp(12px,3vw,20px); }
+  .content-card { padding:clamp(14px,3vw,28px) clamp(10px,3vw,20px); gap:10px; }
   h1 { font-size:clamp(44px,14vw,100px); white-space:nowrap; }
-  .rsvp-section { gap:10px; }
-  textarea { height:70px; }
+  .rsvp-section { gap:8px; }
+  textarea { height:60px; }
   button#submit { padding:10px 40px; }
-  .venue-title { font-size:clamp(1.8rem,7vw,2.8rem); }
-  .venue-name { font-size:clamp(1.4rem,5vw,2rem); }
+  .venue-title { font-size:clamp(1.6rem,7vw,2.8rem); }
+  .venue-name { font-size:clamp(1.3rem,5vw,2rem); }
+  .maps-btn { padding:10px 16px; }
+  img#venue-img { max-width:200px; }
 }
 
 @media (max-width:400px) {
   .rsvp-section { gap:6px; }
-  textarea { height:50px; }
-  .content-card { padding:12px 10px; }
+  textarea { height:45px; }
+  .content-card { padding:10px; gap:8px; }
   button#submit { padding:8px 30px; font-size:0.9rem; }
-  .snap-section { padding:30px 16px 80px; }
-  .family { font-size:clamp(0.9rem,3.5vw,1.3rem); }
-  .quote { font-size:clamp(0.8rem,2.5vw,1rem); }
-  .invite-text { font-size:clamp(0.9rem,3vw,1.1rem); }
-  h1 { font-size:clamp(38px,13vw,75px); }
-  .venue-title { font-size:clamp(1.5rem,6vw,2.2rem); }
-  .venue-name { font-size:clamp(1.2rem,4.5vw,1.8rem); }
-  .rsvp-section { gap:8px; }
-  .content-card { gap:8px; }
+  .snap-section { padding:16px 16px 70px; }
+  .family { font-size:clamp(0.85rem,3.5vw,1.2rem); }
+  .quote { font-size:clamp(0.75rem,2.5vw,0.95rem); }
+  .invite-text { font-size:clamp(0.85rem,3vw,1rem); }
+  h1 { font-size:clamp(36px,13vw,70px); }
+  .venue-title { font-size:clamp(1.4rem,6vw,2rem); }
+  .venue-name { font-size:clamp(1.1rem,4.5vw,1.6rem); }
+  .maps-btn { padding:8px 12px; gap:8px; }
+  img#venue-img { max-width:160px; }
+  button.confirm, button.decline { padding:8px 24px; font-size:0.9rem; }
 }
 
 @media (max-height:700px) {
-  .snap-section { padding:20px 16px 70px; }
+  .snap-section { padding:16px 16px 70px; }
   .content-card { padding:10px 12px; gap:6px; }
-  .venue-title { font-size:1.6rem; }
-  .venue-name { font-size:1.3rem; }
-  h1 { font-size:clamp(34px,11vw,65px); }
-  .family { font-size:clamp(0.85rem,3vw,1.2rem); }
-  .quote { font-size:clamp(0.75rem,2.5vw,0.95rem); }
-  .invite-text { font-size:clamp(0.85rem,3vw,1rem); }
-  textarea { height:45px; }
+  .venue-title { font-size:1.5rem; }
+  .venue-name { font-size:1.2rem; }
+  h1 { font-size:clamp(32px,11vw,60px); }
+  .family { font-size:clamp(0.8rem,3vw,1.1rem); }
+  .quote { font-size:clamp(0.75rem,2.5vw,0.9rem); }
+  .invite-text { font-size:clamp(0.8rem,3vw,1rem); }
+  textarea { height:40px; }
   .rsvp-section { gap:5px; }
+  img#venue-img { max-width:140px; }
+  .maps-btn { padding:8px 12px; }
+  button.confirm, button.decline { padding:7px 20px; font-size:0.85rem; }
 }
   
 *, *::before, *::after { box-sizing: border-box; }
@@ -104,7 +110,7 @@ html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:
 #invitation-content > * { pointer-events:all; }
 
 .snap-section { min-height:100svh; height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 20px 80px; scroll-snap-align:start; overflow-y:auto; overflow-x:hidden; }
-.content-card { background:transparent; border-radius:24px; padding:40px 36px; width:90%; max-width:560px; display:flex; flex-direction:column; align-items:center; gap:16px; border:1px solid var(--gold); }
+.content-card { background:transparent; border-radius:24px; padding:20px; width:90%; max-width:560px; display:flex; flex-direction:column; align-items:center; gap:12px; border:1px solid var(--gold); }
 .hero-text { display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
 .hero-middle { display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
 .hero-middle .family { font-size:1.5rem; line-height:2; color:#ffffff; }
