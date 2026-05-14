@@ -102,14 +102,14 @@ html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:
 .rsvp-reveal { animation:rsvpReveal 1.4s cubic-bezier(0.22,1,0.36,1) forwards; }
 
 /* ── INVITATION ── */
-#invitation { position:relative; height:100svh; overflow-y:scroll; scroll-snap-type:y mandatory; scroll-snap-stop:always; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+#invitation { position:relative; height:100svh; overflow-y:scroll; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
 #carousel-bg-fixed { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; transform:translateZ(0); will-change:transform; }
 #carousel-bg-fixed .carousel-slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.8s ease; }
 #carousel-bg-fixed .carousel-slide.active { opacity:1; }
 #invitation-content { position:relative; z-index:2; }
 #invitation-content > * { pointer-events:all; }
 
-.snap-section { min-height:100svh; height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 20px 80px; scroll-snap-align:start; overflow-y:auto; overflow-x:hidden; }
+.snap-section { min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px 80px; scroll-snap-align:start; }
 .content-card { background:transparent; border-radius:24px; padding:20px; width:90%; max-width:560px; display:flex; flex-direction:column; align-items:center; gap:12px; border:1px solid var(--gold); }
 .hero-text { display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
 .hero-middle { display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
