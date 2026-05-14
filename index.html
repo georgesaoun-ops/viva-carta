@@ -394,6 +394,16 @@ function enterInvitation() {
   document.getElementById('music-btn').style.display='flex';
   document.getElementById('swipe-hint').style.display='flex';
 
+  document.getElementById('invitation').addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('.snap-section');
+    const lastSection = sections[sections.length - 1];
+    if (this.scrollTop >= lastSection.offsetTop - 200) {
+      document.getElementById('swipe-hint').style.display = 'none';
+    } else {
+      document.getElementById('swipe-hint').style.display = 'flex';
+    }
+  }, { passive: true });
+
   // Start carousel
   const slides = document.querySelectorAll('#carousel-bg-fixed .carousel-slide');
   let current = 0;
