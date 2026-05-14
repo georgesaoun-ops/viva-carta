@@ -19,40 +19,45 @@
 @keyframes heroRise { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
 
 @media (max-width:768px) {
-  .quote { font-size:clamp(1rem,3vw,1.2rem); }
-  .family { font-size:clamp(1.2rem,4vw,2rem); }
-  .invite-text { font-size:clamp(1.1rem,3.5vw,1.7rem); }
-  .rsvp-section p { font-size:clamp(1rem,3vw,1.2rem); }
-  .content-card { padding:clamp(20px,4vw,32px) clamp(16px,3vw,24px) 90px; }
-  h1 { font-size:clamp(50px,14vw,100px); white-space:nowrap; }
+  .quote { font-size:clamp(0.9rem,3vw,1.2rem); }
+  .family { font-size:clamp(1rem,4vw,2rem); }
+  .invite-text { font-size:clamp(1rem,3.5vw,1.7rem); }
+  .rsvp-section p { font-size:clamp(0.9rem,3vw,1.2rem); }
+  .content-card { padding:clamp(16px,4vw,32px) clamp(12px,3vw,24px); }
+  h1 { font-size:clamp(44px,14vw,100px); white-space:nowrap; }
   .rsvp-section { gap:10px; }
   textarea { height:70px; }
   button#submit { padding:10px 40px; }
+  .venue-title { font-size:clamp(1.8rem,7vw,2.8rem); }
+  .venue-name { font-size:clamp(1.4rem,5vw,2rem); }
 }
 
 @media (max-width:400px) {
-  .rsvp-section { gap:8px; }
-  textarea { height:60px; }
-  .content-card { padding:16px 14px 90px; }
-  button#submit { padding:8px 40px; font-size:1rem; }
-  .snap-section { padding:40px 20px; }
-  .family { font-size:clamp(1rem,3.5vw,1.5rem); }
-  .quote { font-size:clamp(0.9rem,2.5vw,1rem); }
-  .invite-text { font-size:clamp(1rem,3vw,1.2rem); }
-  h1 { font-size:clamp(42px,13vw,80px); }
+  .rsvp-section { gap:6px; }
+  textarea { height:55px; }
+  .content-card { padding:12px 10px; }
+  button#submit { padding:8px 30px; font-size:0.9rem; }
+  .snap-section { padding:40px 16px 90px; }
+  .family { font-size:clamp(0.9rem,3.5vw,1.3rem); }
+  .quote { font-size:clamp(0.8rem,2.5vw,1rem); }
+  .invite-text { font-size:clamp(0.9rem,3vw,1.1rem); }
+  h1 { font-size:clamp(38px,13vw,75px); }
+  .venue-title { font-size:clamp(1.6rem,6vw,2.4rem); }
+  .venue-name { font-size:clamp(1.2rem,4.5vw,1.8rem); }
 }
 
 @media (max-height:700px) {
-  .snap-section { padding:30px 20px; gap:20px; }
-  .content-card { padding:16px 14px 90px; gap:8px; }
-  .venue-title { font-size:2rem; }
-  .venue-name { font-size:1.6rem; }
-  h1 { font-size:clamp(40px,12vw,80px); }
-  .family { font-size:clamp(1rem,3vw,1.4rem); }
-  .quote { font-size:clamp(0.85rem,2.5vw,1rem); }
-  .invite-text { font-size:clamp(1rem,3vw,1.2rem); }
-  textarea { height:60px; }
-  .rsvp-section { gap:8px; }
+  .snap-section { padding:20px 16px 80px; }
+  .content-card { padding:12px 14px; gap:8px; }
+  .venue-title { font-size:1.8rem; }
+  .venue-name { font-size:1.4rem; }
+  h1 { font-size:clamp(36px,12vw,70px); }
+  .family { font-size:clamp(0.9rem,3vw,1.3rem); }
+  .quote { font-size:clamp(0.8rem,2.5vw,1rem); }
+  .invite-text { font-size:clamp(0.9rem,3vw,1.1rem); }
+  textarea { height:50px; }
+  .rsvp-section { gap:6px; }
+  .snap-section { gap:10px; }
 }
   
 *, *::before, *::after { box-sizing: border-box; }
@@ -97,7 +102,7 @@ html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:
 #invitation-content { position:relative; z-index:2; }
 #invitation-content > * { pointer-events:all; }
 
-.snap-section { min-height:100svh; height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px 100px; scroll-snap-align:start; overflow:hidden; }
+.snap-section { min-height:100svh; height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px 100px; scroll-snap-align:start; overflow-y:auto; overflow-x:hidden; }
 .content-card { background:transparent; border-radius:24px; padding:40px 36px; width:90%; max-width:560px; display:flex; flex-direction:column; align-items:center; gap:16px; border:1px solid var(--gold); }
 .hero-text { display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; }
 .hero-middle { display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
