@@ -22,8 +22,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:var(--bg); font-family:'EB Garamond',serif; text-align:center; color:var(--brown); }
 
-#music-btn { position:fixed; bottom:28px; left:28px; z-index:999; width:46px; height:46px; border-radius:50%; border:1px solid rgba(200,169,106,0.6); background:rgba(255,247,238,0.85);
-#music-btn:hover { border-color:var(--gold); box-shadow:0 4px 20px rgba(200,169,106,0.3); transform:scale(1.08); }
+#music-btn { position:fixed; bottom:28px; left:28px; z-index:999; width:46px; height:46px; border-radius:50%; border:none; background:transparent; color:var(--brown); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease; padding:0; box-shadow:none; }
+#music-btn:hover { transform:scale(1.08); }
 #music-btn svg { width:18px; height:18px; transition:opacity 0.3s ease; }
 
 /* ── LANG SWITCHER ── */
