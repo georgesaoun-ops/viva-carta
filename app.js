@@ -233,6 +233,7 @@
   // set initial language from URL or default to EN
   const langParam = params.get("lang") || "en";
   setTimeout(() => setLangContent(langParam), 100);
+  if (langParam === "ar") document.getElementById("lang-label").textContent = "AR";
   
   // ── DONE — page is ready ─────────────────────────────────────────────────
 
