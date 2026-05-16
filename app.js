@@ -129,7 +129,9 @@
     if (code) {
       let b64 = code.replace(/-/g, "+").replace(/_/g, "/");
       while (b64.length % 4) b64 += "=";
-      const decoded = atob(b64);
+      const decoded = new TextDecoder('utf-8').decode(
+    Uint8Array.from(atob(b64), c => c.charCodeAt(0))
+    );
       const parts   = decoded.split("|");
       if (parts.length === 3 && parts[2] === cfg.secret) {
         guestName  = parts[0];
