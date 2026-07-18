@@ -1,5 +1,5 @@
 /**
- * VIVA CARTA — royal-curtain-gold / app.js
+ * VIVA CARTA — royal / app.js
  */
 
 (async function () {
