@@ -18,7 +18,7 @@
   "rsvpDeadlineEn": "Kindly reply by June 7, 2026",
   "rsvpDeadlineAr": "يرجى تأكيد الحضور أو الإعتذار قبل ٧ حزيران",
   "venueName": "Couvent St. Georges",
-  "venueImage": "assets/georges-and-yara/bherdoknobg.png",
+  "venueImage": "assets/bherdoknobg.png",
   "venueLocationEn": "Bherdok, Beit Chabeb",
   "venueLocationAr": "بحردق - بيت شباب",
   "venueMapsUrl": "https://maps.app.goo.gl/mPbzVzFXPR2gNSicA",
@@ -42,18 +42,18 @@
       ]
     }
   ],
-  "landingImage": "assets/georges-and-yara/gandyone.jpeg",
+  "landingImage": "assets/gandyone.jpeg",
   "landingTaglineEn": "We can't imagine this day without you...",
   "landingTaglineAr": "لا يمكننا تخيّل هذا اليوم من دونكم...",
   "photos": [
-    "assets/georges-and-yara/gandyone.jpeg",
-    "assets/georges-and-yara/gandy2.jpeg",
-    "assets/georges-and-yara/gandy3.jpeg",
-    "assets/georges-and-yara/gandy4.jpeg",
-    "assets/georges-and-yara/gandy5.jpeg",
-    "assets/georges-and-yara/gandy6.jpeg"
+    "assets/gandyone.jpeg",
+    "assets/gandy2.jpeg",
+    "assets/gandy3.jpeg",
+    "assets/gandy4.jpeg",
+    "assets/gandy5.jpeg",
+    "assets/gandy6.jpeg"
   ],
-  "music": "assets/georges-and-yara/invitation-song.mp3",
+  "music": "assets/invitation-song.mp3",
   "colors": {
     "gold": "#c8a96a",
     "brown": "#74583e",
