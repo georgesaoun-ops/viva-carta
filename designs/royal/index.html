@@ -1,1 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>Royal Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
 
+/* ── CSS VARIABLES (overridden per-client by app.js) ── */
+:root {
+  --royal-purple: #3b1552;
+  --royal-purple-dark: #24092f;
+  --gold:      #d4af37;
+  --goldLight: #f0d878;
+  --brown:     #2a1435;
+  --bg:        #120818;
+  --cream:     #f7ecd8;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+*:focus { outline: none; -webkit-tap-highlight-color: transparent; }
+html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:var(--bg); font-family:'EB Garamond',serif; text-align:center; color:var(--cream); }
+
+/* ── ROYAL LANDING / CURTAIN STAGE ── */
+#landing {
+  position:fixed; top:0; left:0; right:0; bottom:0;
+  z-index:200; overflow:hidden; cursor:pointer;
+  background-color:var(--royal-purple-dark);
+  background-size:cover; background-position:center;
+}
+#landing.leaving { pointer-events:none; }
+
+.royal-bg-dim {
+  position:absolute; inset:0; background:rgba(10,4,15,0.45); z-index:1;
+}
+
+.royal-content {
+  position:relative; z-index:5;
+  height:100%; display:flex; flex-direction:column;
+  align-items:center; justify-content:space-between;
+  padding: 48px 20px 60px;
+}
+
+.royal-initials {
+  font-family:'Cinzel', serif;
+  font-size: clamp(2.2rem, 8vw, 3.6rem);
+  letter-spacing: 6px;
+  color: var(--goldLight);
+  text-shadow: 0 0 18px rgba(212,175,55,0.55);
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  width: clamp(100px, 22vw, 150px);
+  height: clamp(100px, 22vw, 150px);
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(59,21,82,0.35);
+  animation: royalFadeIn 1.4s ease 0.3s both;
+}
+
+.royal-message {
+  font-family:'EB Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 3.2vw, 1.3rem);
+  color: var(--cream);
+  opacity: 0.9;
+  letter-spacing: 1px;
+  animation: royalPulse 2.4s ease-in-out infinite, royalFadeIn 1.4s ease 0.6s both;
+}
+
+.royal-message .tap-icon { display:block; font-size:1.4rem; margin-bottom:8px; }
+
+@keyframes royalFadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes royalPulse { 0%,100%{opacity:0.7} 50%{opacity:1} }
+
+/* ── CURTAINS ── */
+.curtain {
+  position:absolute; top:0; bottom:0; width:52%;
+  z-index:10;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--royal-purple) 0px,
+      #4a1c68 18px,
+      var(--royal-purple) 36px
+    );
+  box-shadow: inset 0 0 60px rgba(0,0,0,0.55);
+  transition: transform 1.3s cubic-bezier(0.76,0,0.24,1);
+}
+.curtain::after {
+  content:"";
+  position:absolute; top:0; bottom:0; width:100%;
+  background: linear-gradient(180deg, rgba(212,175,55,0.25), transparent 12%);
+}
+.curtain-left  { left:0;  border-right: 4px solid var(--gold); transform-origin:left; }
+.curtain-right { right:0; border-left: 4px solid var(--gold); transform-origin:right; }
+
+.curtain-tassel {
+  position:absolute; bottom:0; width:100%; height:36px;
+  background: linear-gradient(180deg, var(--gold), #a5822a);
+  box-shadow: 0 -2px 12px rgba(212,175,55,0.5);
+}
+
+#landing.opening .curtain-left  { transform: translateX(-105%); }
+#landing.opening .curtain-right { transform: translateX(105%); }
+#landing.opening .royal-content { transition: opacity 0.5s ease 0.5s; opacity:0; }
+
+/* ── INVITATION (reused structure) ── */
+@media (max-width:768px) {
+  .quote { font-size:clamp(0.9rem,3vw,1.2rem); }
+  .family { font-size:clamp(1rem,4vw,2rem); }
+  .invite-text { font-size:clamp(1rem,3.5vw,1.7rem); }
+  .rsvp-section p { font-size:clamp(0.9rem,3vw,1.2rem); }
+  .content-card { padding:clamp(14px,3vw,28px) clamp(10px,3vw,20px); gap:10px; }
+  h1 { font-size:clamp(40px,13vw,90px); white-space:nowrap; }
+  textarea { height:60px; }
+  button#submit { padding:10px 30px; font-size:1rem; }
+  .venue-title { font-size:clamp(1.6rem,7vw,2.6rem); }
+  .venue-name { font-size:clamp(1.3rem,5vw,1.9rem); }
+  img#venue-img { max-width:200px; }
+}
+
+#carousel-bg-fixed { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; }
+#carousel-bg-fixed .carousel-slide { position:absolute; inset:0; background-size:cover; background-position:center; opacity:0; transition:opacity 1.8s ease; }
+#carousel-bg-fixed .carousel-slide.active { opacity:1; }
+#invitation { position:relative; height:100dvh; overflow-y:scroll; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+#invitation-content { position:relative; z-index:2; }
+
+.snap-section { height:100dvh; min-height:100dvh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:16px 16px 80px; scroll-snap-align:start; }
+.content-card { background:rgba(36,9,47,0.55); backdrop-filter:blur(6px); border-radius:20px; padding:16px; width:90%; max-width:560px; display:flex; flex-direction:column; align-items:center; gap:10px; border:1.5px solid var(--gold); }
+
+h1 { font-family:'Great Vibes',cursive; font-size:clamp(50px,12vw,110px); color:var(--goldLight); line-height:1; white-space:nowrap; }
+.quote { font-size:1.2rem; font-style:italic; line-height:1.6; margin:0; color:#fff; }
+.quote span { font-size:0.95rem; font-style:normal; }
+.family { font-size:1.5rem; line-height:2; margin:0; color:#fff; }
+.invite-text { font-size:1.3rem; line-height:1.6; margin:0; color:rgba(255,255,255,0.85); }
+.divider { width:60%; border:none; border-top:1px solid var(--gold); margin:5px 0; }
+
+.content-card .venue-title,.content-card .venue-name,.content-card p,.content-card h2,.content-card h3 { color:#fff; }
+.venue-title { font-family:'Cinzel',serif; font-size:2rem; color:var(--goldLight); margin:0; }
+.venue-name { font-family:'Great Vibes',cursive; font-size:2rem; color:var(--goldLight); margin:0; }
+.venue-card-divider { width:40px; height:1px; background:var(--gold); opacity:0.6; }
+
+.rsvp-section { width:100%; display:flex; flex-direction:column; align-items:center; gap:8px; }
+div.rsvp-buttons { display:flex; justify-content:center; gap:15px; }
+button.confirm, button.decline { font-size:1rem; letter-spacing:2px; text-transform:uppercase; padding:10px 36px; border-radius:30px; border:1.5px solid var(--gold); cursor:pointer; transition:all 0.3s ease; background:transparent; color:#fff; font-family:'EB Garamond',serif; }
+button.confirm:hover, button.decline:hover, button.confirm.selected, button.decline.selected { background:var(--gold); color:#2a1435; border-color:var(--gold); }
+#thank-you-msg { font-size:1.1rem; color:var(--goldLight); font-style:italic; font-weight:bold; min-height:1.5em; opacity:0; transition:opacity 0.4s ease; }
+#thank-you-msg.visible { opacity:1; }
+textarea { width:100%; height:100px; padding:15px; font-size:1rem; border-radius:15px; border:1px solid var(--gold); background-color:rgba(255,255,255,0.08); color:#fff; resize:none; font-family:'EB Garamond',serif; }
+textarea::placeholder { color:rgba(255,255,255,0.5); }
+button#submit { font-size:1.1rem; padding:15px 40px; border-radius:20px; border:none; cursor:pointer; width:70%; max-width:300px; color:#2a1435; background:var(--gold); box-shadow:0 6px 20px rgba(0,0,0,0.35); transition:all 0.3s ease; font-family:'EB Garamond',serif; }
+button#submit:hover { transform:scale(1.05); }
+button#submit:disabled { background:#6b6070; cursor:not-allowed; opacity:0.5; }
+button#edit-btn { font-size:0.95rem; padding:8px 25px; border-radius:12px; border:1px solid var(--gold); background:transparent; color:var(--goldLight); cursor:pointer; font-family:'EB Garamond',serif; display:none; }
+#message { font-size:1.2rem; color:#fff; }
+
+.maps-btn { display:flex; align-items:center; gap:14px; padding:14px 24px; border-radius:16px; border:1px solid rgba(212,175,55,0.5); background:rgba(212,175,55,0.08); color:#fff; font-family:'EB Garamond',serif; text-decoration:none; margin-top:8px; width:100%; box-sizing:border-box; }
+.maps-icon { width:38px; height:38px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.maps-icon svg { width:18px; height:18px; }
+.maps-text { display:flex; flex-direction:column; align-items:flex-start; gap:2px; }
+.maps-label { font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; color:var(--goldLight); }
+
+.content-card .gift-inner { background:rgba(255,255,255,0.06); border:1px solid rgba(212,175,55,0.4); border-radius:16px; padding:12px 16px; width:100%; max-width:400px; }
+.content-card .gift-inner hr { border:none; border-top:1px solid var(--gold); margin:10px 0; opacity:0.5; }
+
+.content-card, .hero-text { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease,transform 0.7s ease; }
+.content-card.visible, .hero-text.visible { opacity:1; transform:translateY(0); }
+
+#music-btn { position:fixed; bottom:28px; left:28px; z-index:999; width:46px; height:46px; border-radius:50%; border:1px solid var(--gold); background:transparent; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0; }
+#lang-switcher { position:fixed; top:20px; left:0; z-index:999; display:none; }
+#lang-btn { font-family:'EB Garamond',serif; font-size:0.8rem; padding:8px 14px 8px 10px; border-radius:0 20px 20px 0; border:1px solid var(--gold); border-left:none; background:rgba(0,0,0,0.4); color:var(--goldLight); cursor:pointer; display:flex; align-items:center; gap:7px; }
+#lang-menu { display:none; position:absolute; top:50%; left:calc(100% + 8px); transform:translateY(-50%); background:rgba(20,8,25,0.95); border:1px solid var(--gold); border-radius:16px; overflow:hidden; min-width:120px; }
+.lang-option { padding:10px 18px; font-size:0.9rem; color:rgba(255,255,255,0.8); cursor:pointer; text-align:left; }
+.lang-option.active { color:var(--goldLight); font-style:italic; }
+.lang-divider { height:1px; background:rgba(212,175,55,0.3); margin:0 12px; }
+
+</style>
+</head>
+<body>
+
+<div id="lang-switcher">
+  <button id="lang-btn" onclick="toggleLangMenu()">
+    <span id="lang-label">EN</span>
+  </button>
+  <div id="lang-menu">
+    <div class="lang-option active" onclick="selectLang('en','English',this)">English</div>
+    <div class="lang-divider"></div>
+    <div class="lang-option" onclick="selectLang('ar','العربية',this)">العربية</div>
+  </div>
+</div>
+
+<audio id="bg-music" loop>
+  <source id="bg-music-src" src="" type="audio/mpeg">
+</audio>
+<button id="music-btn" onclick="toggleMusic()" title="Music" style="display:none;">♪</button>
+
+<!-- ── ROYAL CURTAIN LANDING ── -->
+<div id="landing" onclick="openCurtains()">
+  <div class="royal-bg-dim"></div>
+  <div class="curtain curtain-left"><div class="curtain-tassel"></div></div>
+  <div class="curtain curtain-right"><div class="curtain-tassel"></div></div>
+  <div class="royal-content">
+    <div class="royal-initials" id="ring-initials-text">G&Y</div>
+    <p class="royal-message"><span class="tap-icon">✦</span><span id="landing-tagline"></span></p>
+  </div>
+</div>
+
+<div id="carousel-bg-fixed" style="display:none;"></div>
+
+<div id="invitation" style="display:none;">
+  <div id="invitation-content">
+
+    <div class="snap-section" style="justify-content:center; gap:60px; padding:80px 20px;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:-40px;">
+        <p class="quote"></p>
+        <hr class="divider" style="margin:8px 0 0 0;">
+      </div>
+      <p class="family"></p>
+      <p class="invite-text" style="margin-bottom:-20px !important;"></p>
+      <h1 id="couple-names" style="margin-bottom:40px;"></h1>
+    </div>
+
+    <div class="snap-section">
+      <div class="content-card">
+        <h2 class="venue-title">The Venue</h2>
+        <img id="venue-img" src="" alt="" style="width:100%;max-width:340px;object-fit:contain;border-radius:8px;">
+        <h3 class="venue-name" id="venue-name-title"></h3>
+        <p id="venue-location" class="venue-address"></p>
+        <div class="venue-card-divider"></div>
+        <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
+          <p id="venue-date" class="venue-date" style="margin:0;"></p>
+          <p id="punctual-note" style="font-style:italic;font-size:0.9rem;opacity:0.8;margin:0;"></p>
+          <p id="venue-note" style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--goldLight);margin:16px 0 0;font-weight:bold;"></p>
+        </div>
+        <a id="maps-btn" class="maps-btn" href="#" target="_blank" rel="noopener">
+          <div class="maps-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2a1435" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <div class="maps-text">
+            <span class="maps-label">Find the venue</span>
+            <span class="maps-name" id="maps-name"></span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="snap-section" id="section-gift" style="padding:40px 20px;justify-content:center;">
+      <div class="content-card" style="gap:10px;">
+        <h2 class="venue-title">Gift Registry</h2>
+        <p class="invite-text" id="gift-intro" style="font-style:italic;opacity:0.85;line-height:1.8;text-align:center;"></p>
+        <div id="gift-accounts" style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;"></div>
+      </div>
+    </div>
+
+    <div class="snap-section">
+      <div class="content-card rsvp-section">
+        <div id="rsvp-countdown" style="display:none;flex-direction:column;align-items:center;gap:10px;width:100%;">
+          <p style="font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--goldLight);margin:0;">Counting Down</p>
+          <div style="display:flex;gap:clamp(8px,4vw,28px);justify-content:center;width:100%;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><span id="cd-days" class="cd-num" style="font-family:'Great Vibes',cursive;font-size:2rem;color:var(--goldLight);">0</span><span style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Days</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><span id="cd-hours" class="cd-num" style="font-family:'Great Vibes',cursive;font-size:2rem;color:var(--goldLight);">0</span><span style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Hours</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><span id="cd-minutes" class="cd-num" style="font-family:'Great Vibes',cursive;font-size:2rem;color:var(--goldLight);">0</span><span style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Minutes</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;"><span id="cd-seconds" class="cd-num" style="font-family:'Great Vibes',cursive;font-size:2rem;color:var(--goldLight);">0</span><span style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);">Seconds</span></div>
+          </div>
+          <hr style="width:60%;border:none;border-top:1px solid rgba(212,175,55,0.3);margin:0;">
+        </div>
+
+        <h2 class="venue-title">Honor us with your presence</h2>
+        <div id="message"></div>
+        <p>Number of persons invited: <strong><span id="num-guests"></span></strong></p>
+        <p id="attending-count" style="display:none;">Number of persons attending: <strong><span id="num-attending"></span></strong></p>
+        <p id="reply-deadline" style="font-style:italic;font-size:0.9rem;opacity:0.8;margin:0 0 16px;"></p>
+        <p id="attending-question" style="font-weight:bold;">Are you attending?</p>
+        <div class="rsvp-buttons">
+          <button class="confirm" id="btn-yes" onclick="selectAttendance(true)">Yes</button>
+          <button class="decline" id="btn-no" onclick="selectAttendance(false)">No</button>
+        </div>
+
+        <div id="guest-count-section" style="display:none;flex-direction:column;align-items:center;gap:10px;width:100%;">
+          <hr style="width:60%;border:none;border-top:1px solid rgba(212,175,55,0.3);">
+          <div style="color:#fff;font-size:1rem;display:flex;align-items:center;gap:10px;">
+            <span id="gc-before">We will be</span>
+            <span class="gc-pill" id="gc-pill" onclick="toggleGcDrop(event)" style="background:rgba(212,175,55,0.2);border:1px solid var(--gold);border-radius:30px;padding:5px 20px;color:var(--goldLight);cursor:pointer;position:relative;min-width:50px;">
+              <span id="gc-num"> </span>
+              <div class="gc-dropdown" id="gc-drop" style="display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(20,8,25,0.95);border:1px solid var(--gold);border-radius:16px;overflow:hidden;width:60px;z-index:10;"></div>
+            </span>
+            <span id="gc-after">attending</span>
+          </div>
+        </div>
+
+        <div id="thank-you-msg"></div>
+        <p id="changed-mind" style="font-size:1rem;font-style:italic;display:none;margin-top:16px;color:rgba(255,255,255,0.8);"></p>
+        <button id="edit-btn" onclick="editResponse()">Edit</button>
+        <p id="wishes-label">Share your love and wishes:</p>
+        <textarea id="love-message" placeholder="Write your message here..."></textarea>
+        <button id="submit" onclick="submitForm()" disabled>Submit</button>
+      </div>
+      <p style="font-size:0.8rem; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:24px 0 0 0;">by Viva Carta</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="/designs/royal-curtain-gold/app.js"></script>
+</body>
+</html>
