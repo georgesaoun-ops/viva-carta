@@ -73,90 +73,109 @@ html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:
 @keyframes royalFadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
 @keyframes royalPulse { 0%,100%{opacity:0.7} 50%{opacity:1} }
 
-/* ── CURTAINS (theatre/palace style) ── */
-.curtain-stage {
-  position:absolute; inset:0; z-index:10; pointer-events:none;
-}
+/* ── CURTAINS (theatre/palace style, damask + ornate pelmet) ── */
 
-/* Top valance / pelmet spanning the full width */
+/* Ornate gold pelmet with scalloped fringe, like a valance */
 .curtain-valance {
-  position:absolute; top:0; left:0; right:0; height:90px; z-index:15;
+  position:absolute; top:0; left:0; right:0; height:110px; z-index:15;
   background:
-    radial-gradient(ellipse at top, #9c1f2c 0%, var(--royal-purple) 70%),
-    repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0px, transparent 20px, rgba(0,0,0,0.12) 40px);
-  border-bottom: 3px solid var(--gold);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    linear-gradient(180deg, #f0d878 0%, #d4af37 35%, #a5822a 70%, #7a5f1e 100%);
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 55%,
+    92% 70%, 84% 58%, 76% 72%, 68% 58%, 60% 72%, 52% 58%, 44% 72%,
+    36% 58%, 28% 72%, 20% 58%, 12% 72%, 4% 58%, 0% 68%
+  );
+  box-shadow: 0 8px 24px rgba(0,0,0,0.65);
+}
+.curtain-valance::before {
+  content:"";
+  position:absolute; inset:0;
+  background: repeating-linear-gradient(90deg, rgba(0,0,0,0.15) 0px, transparent 3px, transparent 14px, rgba(0,0,0,0.15) 17px);
+  mix-blend-mode: multiply;
 }
 .curtain-valance::after {
   content:"";
-  position:absolute; bottom:-14px; left:0; right:0; height:14px;
-  background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 3px, transparent 3px, transparent 26px);
-  opacity:0.85;
+  position:absolute; bottom:-10px; left:0; right:0; height:16px;
+  background: repeating-linear-gradient(90deg, #a5822a 0px, #a5822a 2px, transparent 2px, transparent 10px);
+  opacity:0.9;
 }
 
+/* Curtain panel with damask-style pattern (base velvet + subtle diamond motif) */
 .curtain {
-  position:absolute; top:0; bottom:0; width:54%;
+  position:absolute; top:90px; bottom:0; width:56%;
   z-index:10; pointer-events:auto;
   background:
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0px, transparent 3px, transparent 18px, rgba(0,0,0,0.12) 21px),
+    repeating-linear-gradient(65deg, rgba(255,255,255,0.04) 0px, transparent 3px, transparent 18px, rgba(0,0,0,0.10) 21px),
     repeating-linear-gradient(
       90deg,
-      rgba(0,0,0,0.32) 0px,
-      var(--royal-purple) 6px,
-      #a92535 16px,
-      #c23348 22px,
-      #a92535 28px,
-      var(--royal-purple) 38px,
-      rgba(0,0,0,0.32) 46px
+      rgba(0,0,0,0.35) 0px,
+      var(--royal-purple) 8px,
+      #a92535 20px,
+      #c23348 28px,
+      #a92535 36px,
+      var(--royal-purple) 48px,
+      rgba(0,0,0,0.35) 58px
     );
-  box-shadow: inset 0 0 90px rgba(0,0,0,0.6), inset -20px 0 40px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.65), inset -24px 0 50px rgba(0,0,0,0.35);
   transition: transform 1.3s cubic-bezier(0.76,0,0.24,1);
 }
-/* soft top sheen where light hits the fabric folds */
 .curtain::before {
   content:"";
-  position:absolute; top:0; left:0; right:0; height:35%;
-  background: linear-gradient(180deg, rgba(255,220,150,0.18), transparent);
+  position:absolute; top:0; left:0; right:0; height:30%;
+  background: linear-gradient(180deg, rgba(255,220,150,0.16), transparent);
   pointer-events:none;
 }
-/* gold trim down the inner edge */
 .curtain::after {
   content:"";
-  position:absolute; top:0; bottom:0; width:6px;
+  position:absolute; top:0; bottom:0; width:8px;
   background: linear-gradient(180deg, var(--goldLight), var(--gold) 40%, #a5822a);
-  box-shadow: 0 0 10px rgba(212,175,55,0.6);
+  box-shadow: 0 0 12px rgba(212,175,55,0.65);
 }
-.curtain-left  { left:0;  transform-origin:left; }
+.curtain-left  { left:0;  transform-origin:left;
+  clip-path: polygon(0% 0%, 100% 0%, 92% 100%, 0% 100%);
+}
 .curtain-left::after  { right:0; }
-.curtain-right { right:0; transform-origin:right; }
+.curtain-right { right:0; transform-origin:right;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 8% 100%);
+}
 .curtain-right::after { left:0; }
 
-/* Tie-back + tassel at the bottom corner of each curtain, like it's gathered */
+/* Gathered tie-back rosette + hanging tassel */
 .curtain-tieback {
-  position:absolute; bottom:70px; width:60px; height:60px; border-radius:50%;
-  background: radial-gradient(circle at 35% 35%, var(--goldLight), var(--gold) 60%, #8a6a20);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  position:absolute; bottom:110px; width:64px; height:64px; border-radius:50%;
+  background: radial-gradient(circle at 35% 32%, var(--goldLight), var(--gold) 55%, #7a5f1e 100%);
+  box-shadow: 0 5px 16px rgba(0,0,0,0.55), inset 0 0 8px rgba(255,255,255,0.3);
   z-index:12;
 }
-.curtain-left .curtain-tieback  { right:-10px; }
-.curtain-right .curtain-tieback { left:-10px; }
+.curtain-left .curtain-tieback  { right:-14px; }
+.curtain-right .curtain-tieback { left:-14px; }
 
 .curtain-tassel-string {
-  position:absolute; bottom:0; width:4px; height:70px;
-  background: linear-gradient(180deg, var(--gold), #8a6a20);
+  position:absolute; bottom:0; width:5px; height:80px;
+  background: linear-gradient(180deg, var(--gold), #7a5f1e);
   left:50%; transform:translateX(-50%);
 }
 .curtain-tassel-bulb {
-  position:absolute; bottom:-18px; left:50%; transform:translateX(-50%);
-  width:22px; height:26px; border-radius:0 0 50% 50% / 0 0 60% 60%;
-  background: radial-gradient(circle at 35% 25%, var(--goldLight), var(--gold) 60%, #8a6a20);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+  position:absolute; bottom:-24px; left:50%; transform:translateX(-50%);
+  width:26px; height:32px; border-radius:0 0 50% 50% / 0 0 65% 65%;
+  background: radial-gradient(circle at 35% 22%, var(--goldLight), var(--gold) 55%, #7a5f1e 100%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.curtain-tassel-bulb::after {
+  content:"";
+  position:absolute; bottom:-6px; left:50%; transform:translateX(-50%);
+  width:18px; height:8px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 1.5px, transparent 1.5px, transparent 3.5px);
 }
 
-#landing.opening .curtain-left  { transform: translateX(-105%); }
-#landing.opening .curtain-right { transform: translateX(105%); }
+#landing.opening .curtain-left  { transform: translateX(-110%); }
+#landing.opening .curtain-right { transform: translateX(110%); }
 #landing.opening .curtain-valance { transition: opacity 0.4s ease 0.9s; opacity:0; }
 #landing.opening .royal-content { transition: opacity 0.5s ease 0.5s; opacity:0; }
-/* ── INVITATION (reused structure) ── */
+
+  
+  /* ── INVITATION (reused structure) ── */
 @media (max-width:768px) {
   .quote { font-size:clamp(0.9rem,3vw,1.2rem); }
   .family { font-size:clamp(1rem,4vw,2rem); }
