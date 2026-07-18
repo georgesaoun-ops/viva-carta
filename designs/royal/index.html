@@ -73,38 +73,89 @@ html, body { margin:0; padding:0; width:100%; min-height:100%; background-color:
 @keyframes royalFadeIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
 @keyframes royalPulse { 0%,100%{opacity:0.7} 50%{opacity:1} }
 
-/* ── CURTAINS ── */
+/* ── CURTAINS (theatre/palace style) ── */
+.curtain-stage {
+  position:absolute; inset:0; z-index:10; pointer-events:none;
+}
+
+/* Top valance / pelmet spanning the full width */
+.curtain-valance {
+  position:absolute; top:0; left:0; right:0; height:90px; z-index:15;
+  background:
+    radial-gradient(ellipse at top, #9c1f2c 0%, var(--royal-purple) 70%),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.12) 0px, transparent 20px, rgba(0,0,0,0.12) 40px);
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+.curtain-valance::after {
+  content:"";
+  position:absolute; bottom:-14px; left:0; right:0; height:14px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 3px, transparent 3px, transparent 26px);
+  opacity:0.85;
+}
+
 .curtain {
-  position:absolute; top:0; bottom:0; width:52%;
-  z-index:10;
+  position:absolute; top:0; bottom:0; width:54%;
+  z-index:10; pointer-events:auto;
   background:
     repeating-linear-gradient(
       90deg,
-      var(--royal-purple) 0px,
-      #4a1c68 18px,
-      var(--royal-purple) 36px
+      rgba(0,0,0,0.32) 0px,
+      var(--royal-purple) 6px,
+      #a92535 16px,
+      #c23348 22px,
+      #a92535 28px,
+      var(--royal-purple) 38px,
+      rgba(0,0,0,0.32) 46px
     );
-  box-shadow: inset 0 0 60px rgba(0,0,0,0.55);
+  box-shadow: inset 0 0 90px rgba(0,0,0,0.6), inset -20px 0 40px rgba(0,0,0,0.3);
   transition: transform 1.3s cubic-bezier(0.76,0,0.24,1);
 }
+/* soft top sheen where light hits the fabric folds */
+.curtain::before {
+  content:"";
+  position:absolute; top:0; left:0; right:0; height:35%;
+  background: linear-gradient(180deg, rgba(255,220,150,0.18), transparent);
+  pointer-events:none;
+}
+/* gold trim down the inner edge */
 .curtain::after {
   content:"";
-  position:absolute; top:0; bottom:0; width:100%;
-  background: linear-gradient(180deg, rgba(212,175,55,0.25), transparent 12%);
+  position:absolute; top:0; bottom:0; width:6px;
+  background: linear-gradient(180deg, var(--goldLight), var(--gold) 40%, #a5822a);
+  box-shadow: 0 0 10px rgba(212,175,55,0.6);
 }
-.curtain-left  { left:0;  border-right: 4px solid var(--gold); transform-origin:left; }
-.curtain-right { right:0; border-left: 4px solid var(--gold); transform-origin:right; }
+.curtain-left  { left:0;  transform-origin:left; }
+.curtain-left::after  { right:0; }
+.curtain-right { right:0; transform-origin:right; }
+.curtain-right::after { left:0; }
 
-.curtain-tassel {
-  position:absolute; bottom:0; width:100%; height:36px;
-  background: linear-gradient(180deg, var(--gold), #a5822a);
-  box-shadow: 0 -2px 12px rgba(212,175,55,0.5);
+/* Tie-back + tassel at the bottom corner of each curtain, like it's gathered */
+.curtain-tieback {
+  position:absolute; bottom:70px; width:60px; height:60px; border-radius:50%;
+  background: radial-gradient(circle at 35% 35%, var(--goldLight), var(--gold) 60%, #8a6a20);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  z-index:12;
+}
+.curtain-left .curtain-tieback  { right:-10px; }
+.curtain-right .curtain-tieback { left:-10px; }
+
+.curtain-tassel-string {
+  position:absolute; bottom:0; width:4px; height:70px;
+  background: linear-gradient(180deg, var(--gold), #8a6a20);
+  left:50%; transform:translateX(-50%);
+}
+.curtain-tassel-bulb {
+  position:absolute; bottom:-18px; left:50%; transform:translateX(-50%);
+  width:22px; height:26px; border-radius:0 0 50% 50% / 0 0 60% 60%;
+  background: radial-gradient(circle at 35% 25%, var(--goldLight), var(--gold) 60%, #8a6a20);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.5);
 }
 
 #landing.opening .curtain-left  { transform: translateX(-105%); }
 #landing.opening .curtain-right { transform: translateX(105%); }
+#landing.opening .curtain-valance { transition: opacity 0.4s ease 0.9s; opacity:0; }
 #landing.opening .royal-content { transition: opacity 0.5s ease 0.5s; opacity:0; }
-
 /* ── INVITATION (reused structure) ── */
 @media (max-width:768px) {
   .quote { font-size:clamp(0.9rem,3vw,1.2rem); }
@@ -198,8 +249,19 @@ button#edit-btn { font-size:0.95rem; padding:8px 25px; border-radius:12px; borde
 <!-- ── ROYAL CURTAIN LANDING ── -->
 <div id="landing" onclick="openCurtains()">
   <div class="royal-bg-dim"></div>
-  <div class="curtain curtain-left"><div class="curtain-tassel"></div></div>
-  <div class="curtain curtain-right"><div class="curtain-tassel"></div></div>
+  <div class="curtain-valance"></div>
+  <div class="curtain curtain-left">
+    <div class="curtain-tieback">
+      <div class="curtain-tassel-string"></div>
+      <div class="curtain-tassel-bulb"></div>
+    </div>
+  </div>
+  <div class="curtain curtain-right">
+    <div class="curtain-tieback">
+      <div class="curtain-tassel-string"></div>
+      <div class="curtain-tassel-bulb"></div>
+    </div>
+  </div>
   <div class="royal-content">
     <div class="royal-initials" id="ring-initials-text">G&Y</div>
     <p class="royal-message"><span class="tap-icon">✦</span><span id="landing-tagline"></span></p>
