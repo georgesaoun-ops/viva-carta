@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Viva Carta</title>
+</head>
+<body>
+<script>
+(async function() {
+  const raw = window.location.search.slice(1);
+  const slug = raw.split("&")[0].split("=")[0];
+
+  if (!slug) {
+    document.body.innerHTML = "<p style='text-align:center;margin-top:40px;'>No invitation found.</p>";
+    return;
+  }
+
+  try {
+    const cfgRes = await fetch(`/clients/${slug}/config.json`);
+    if (!cfgRes.ok) throw new Error("client not found");
+    const cfg = await cfgRes.json();
+    const design = cfg.design;
+
+    const htmlRes = await fetch(`/designs/${design}/index.html`);
+    if (!htmlRes.ok) throw new Error("design not found");
+    const html = await htmlRes.text();
+
+    document.open();
+    document.write(html);
+    document.close();
+
+  } catch (e) {
+    document.body.innerHTML = "<p style='text-align:center;margin-top:40px;'>Invitation not found. Please check your link.</p>";
+  }
+})();
+</script>
+</body>
+</html>
