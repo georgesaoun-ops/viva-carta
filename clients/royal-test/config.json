@@ -1,0 +1,51 @@
+{
+  "design": "royal-curtain-gold",
+  "secret": "TEST2026SECRET",
+  "scriptUrl": "",
+  "couple": "Royal & Test",
+  "groomFirst": "Royal",
+  "brideFirst": "Test",
+  "quoteEn": "\"Two souls, one royal destiny.\"",
+  "quoteRefEn": "",
+  "quoteAr": "",
+  "quoteRefAr": "",
+  "familyEn": "<strong>The Royal Family</strong>",
+  "familyAr": "",
+  "inviteEn": "request the honor of your presence at the wedding of their son and daughter",
+  "inviteAr": "",
+  "weddingDate": "2026-12-31T18:00:00+03:00",
+  "venueDateEn": "Thursday, December 31 2026 at 6:00 PM",
+  "venueDateAr": "",
+  "rsvpDeadlineEn": "Kindly reply by December 1, 2026",
+  "rsvpDeadlineAr": "",
+  "venueName": "Royal Palace Gardens",
+  "venueImage": "../../clients/georges-and-yara/assets/bherdoknobg.png",
+  "venueLocationEn": "Test Location",
+  "venueLocationAr": "",
+  "venueMapsUrl": "https://maps.app.goo.gl/mPbzVzFXPR2gNSicA",
+  "venueMapsLabel": "Royal Palace Gardens",
+  "venueNoteEn": "Ceremony followed by a royal banquet.",
+  "venueNoteAr": "",
+  "giftIntroEn": "For those who wish, a registry is available below.",
+  "giftIntroAr": "",
+  "giftAccounts": [
+    { "labelEn": "Test Account", "labelAr": "", "lines": ["#000000"] }
+  ],
+  "landingImage": "../../clients/georges-and-yara/assets/gandyone.jpeg",
+  "landingTaglineEn": "Tap to reveal your royal invitation",
+  "landingTaglineAr": "",
+  "photos": [
+    "../../clients/georges-and-yara/assets/gandyone.jpeg",
+    "../../clients/georges-and-yara/assets/gandy2.jpeg"
+  ],
+  "music": "../../clients/georges-and-yara/assets/invitation-song.mp3",
+  "colors": {
+    "gold": "#d4af37",
+    "brown": "#2a1435",
+    "bg": "#120818",
+    "goldLight": "#f0d878",
+    "royalPurple": "#3b1552",
+    "royalPurpleDark": "#24092f"
+  },
+  "multilingual": false
+}
