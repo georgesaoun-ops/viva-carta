@@ -21,7 +21,7 @@
   // ── 2. LOAD CONFIG ───────────────────────────────────────────────────────
   let cfg;
   try {
-    const res = await fetch(`invitations/${slug}.json`);
+    const res = await fetch(`../../clients/${slug}/config.json`);
     if (!res.ok) throw new Error("not found");
     cfg = await res.json();
   } catch (e) {

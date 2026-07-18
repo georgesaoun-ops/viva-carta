@@ -1,37 +1,30 @@
 {
   "secret": "GY2026SECRET",
   "scriptUrl": "https://script.google.com/macros/s/AKfycby8kAu5-GDYFDyE4M2BPSWXhwY4ugxJm3vYFe4X0LW35c-nk9I6xgr-TWKYcl-4ZIiRYA/exec",
-
   "couple": "Georges & Yara",
   "groomFirst": "Georges",
   "brideFirst": "Yara",
-
   "quoteEn": "\"What God has joined together, let no one separate.\"",
   "quoteRefEn": "Mark 10:9",
   "quoteAr": "«مَا جَمَعَهُ اللهُ لَا يُفَرِّقُهُ إِنْسَان»",
   "quoteRefAr": "مرقس ١٠:٩",
-
   "familyEn": "<strong>Jihad &amp; Caroline Aoun</strong><br><em>along with</em><br><strong>Gergi &amp; Maha Habib</strong>",
   "familyAr": "<strong>جهاد و كارولين عون</strong><br><em>و</em><br><strong>جرجي و مها حبيب</strong>",
-
   "inviteEn": "request the honor of your presence at the wedding of their son and daughter",
   "inviteAr": "يتشرفون بدعوتكم إلى إكليل ولديهم",
-
   "weddingDate": "2026-06-28T17:45:00+03:00",
   "venueDateEn": "Sunday, June 28 2026 at 6:00 PM",
   "venueDateAr": "الأحد ٢٨ حزيران ٢٠٢٦ — الساعة ٦:٠٠ مساءً",
   "rsvpDeadlineEn": "Kindly reply by June 7, 2026",
   "rsvpDeadlineAr": "يرجى تأكيد الحضور أو الإعتذار قبل ٧ حزيران",
-
   "venueName": "Couvent St. Georges",
-  "venueImage": "bherdoknobg.png",
+  "venueImage": "assets/bherdoknobg.png",
   "venueLocationEn": "Bherdok, Beit Chabeb",
   "venueLocationAr": "بحردق - بيت شباب",
   "venueMapsUrl": "https://maps.app.goo.gl/mPbzVzFXPR2gNSicA",
   "venueMapsLabel": "Couvent St. Georges, Bherdok",
   "venueNoteEn": "Ceremony followed by a welcome drink, dinner and celebration.",
   "venueNoteAr": "يلي الإكليل حفل عشاء",
-
   "giftIntroEn": "We are truly grateful to share this memorable occasion with you. For those who wish, a registry is available below.",
   "giftIntroAr": "فرحتنا تكتمل بحضوركم. لمن يرغب الإهداء :",
   "giftAccounts": [
@@ -49,28 +42,23 @@
       ]
     }
   ],
-
-  "landingImage": "gandyone.jpeg",
+  "landingImage": "assets/gandyone.jpeg",
   "landingTaglineEn": "We can't imagine this day without you...",
   "landingTaglineAr": "لا يمكننا تخيّل هذا اليوم من دونكم...",
-
   "photos": [
-    "gandyone.jpeg",
-    "gandy2.jpeg",
-    "gandy3.jpeg",
-    "gandy4.jpeg",
-    "gandy5.jpeg",
-    "gandy6.jpeg"
+    "assets/gandyone.jpeg",
+    "assets/gandy2.jpeg",
+    "assets/gandy3.jpeg",
+    "assets/gandy4.jpeg",
+    "assets/gandy5.jpeg",
+    "assets/gandy6.jpeg"
   ],
-
-  "music": "invitation-song.mp3",
-
+  "music": "assets/invitation-song.mp3",
   "colors": {
     "gold": "#c8a96a",
     "brown": "#74583e",
     "bg": "#fff7ee",
     "goldLight": "#e8c97a"
   },
-
   "multilingual": true
 }
