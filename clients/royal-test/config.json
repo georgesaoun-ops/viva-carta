@@ -19,7 +19,7 @@
   "rsvpDeadlineEn": "Kindly reply by December 1, 2026",
   "rsvpDeadlineAr": "",
   "venueName": "Royal Palace Gardens",
-  "venueImage": "../../clients/georges-and-yara/assets/bherdoknobg.png",
+  "venueImage": "../georges-and-yara/assets/bherdoknobg.png",
   "venueLocationEn": "Test Location",
   "venueLocationAr": "",
   "venueMapsUrl": "https://maps.app.goo.gl/mPbzVzFXPR2gNSicA",
@@ -31,14 +31,14 @@
   "giftAccounts": [
     { "labelEn": "Test Account", "labelAr": "", "lines": ["#000000"] }
   ],
-  "landingImage": "../../clients/georges-and-yara/assets/gandyone.jpeg",
+  "landingImage": "../georges-and-yara/assets/gandyone.jpeg",
   "landingTaglineEn": "Tap to reveal your royal invitation",
   "landingTaglineAr": "",
   "photos": [
-    "../../clients/georges-and-yara/assets/gandyone.jpeg",
-    "../../clients/georges-and-yara/assets/gandy2.jpeg"
+    "../georges-and-yara/assets/gandyone.jpeg",
+    "../georges-and-yara/assets/gandy2.jpeg"
   ],
-  "music": "../../clients/georges-and-yara/assets/invitation-song.mp3",
+  "music": "../georges-and-yara/assets/invitation-song.mp3",
   "colors": {
     "gold": "#d4af37",
     "brown": "#2a1435",
